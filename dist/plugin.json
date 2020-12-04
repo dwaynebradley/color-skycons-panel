@@ -1,0 +1,38 @@
+{
+  "type": "panel",
+  "name": "color-skycons-panel",
+  "id": "color-skycons-panel",
+  "info": {
+    "description": "Animated color icons for current weather conditions",
+    "author": {
+      "name": "Dwayne Bradley",
+      "url": ""
+    },
+    "keywords": [
+      "weather",
+      "icon",
+      "skycons"
+    ],
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "links": [
+      {
+        "name": "Website",
+        "url": "https://github.com/dwaynebradley/color-skycons-panel"
+      },
+      {
+        "name": "License",
+        "url": "https://github.com/dwaynebradley/color-skycons-panel/blob/master/LICENSE"
+      }
+    ],
+    "screenshots": [],
+    "version": "0.1.0",
+    "updated": "2020-12-04"
+  },
+  "dependencies": {
+    "grafanaVersion": "7.0.x",
+    "plugins": []
+  }
+}
