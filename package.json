@@ -1,0 +1,31 @@
+{
+  "name": "color-skycons-panel",
+  "version": "0.1.0",
+  "description": "Animated color icons for current weather conditions",
+  "scripts": {
+    "build": "grafana-toolkit plugin:build",
+    "test": "grafana-toolkit plugin:test",
+    "dev": "grafana-toolkit plugin:dev",
+    "watch": "grafana-toolkit plugin:dev --watch"
+  },
+  "repository": "github:dwaynebradley/color-skycons-panel",
+  "author": "Dwayne Bradley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dwaynebradley/color-skycons-panel/issues",
+    "email": "dwayne.bradley@gmail.com"
+  },
+  "devDependencies": {
+    "@grafana/data": "^7.0.0",
+    "@grafana/toolkit": "^7.0.0",
+    "@grafana/ui": "^7.0.0",
+    "emotion": "10.0.27"
+  },
+  "engines": {
+    "node": ">=14.15"
+  },
+  "dependencies": {
+    "react-color-skycons": "^0.1.0",
+    "skycons-color": "^1.0.0"
+  }
+}
