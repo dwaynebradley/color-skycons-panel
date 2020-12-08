@@ -3,7 +3,7 @@ import { PanelProps } from '@grafana/data';
 import { SimpleOptions } from 'types';
 import { css, cx } from 'emotion';
 import { stylesFactory } from '@grafana/ui';
-import { ColorSkycons } from 'react-color-skycons';
+import { ColorSkycons, ColorSkyconsType } from 'react-color-skycons';
 
 interface Props extends PanelProps<SimpleOptions> {}
 
@@ -34,10 +34,28 @@ export const ColorSkyconsPanel: React.FC<Props> = ({ options, data, width, heigh
       )}
     >
       {icons.map((icon, index) => {
-        // Icon must be uppercase and have '_' instead of '-' to work correctly.
-        const mytype = icon.toUpperCase().replaceAll('-', '_');
+        if (typeof icon !== 'string') {
+          return (
+            <p>
+              Invalid data type: ({typeof icon}){icon}
+            </p>
+          );
+        } else {
+          // Icon must be uppercase and have '_' instead of '-' to work correctly.
+          const myIcon = icon.toUpperCase().replace('-', '_');
+          const mytype: ColorSkyconsType = ColorSkyconsType[myIcon as keyof typeof ColorSkyconsType];
 
-        return <ColorSkycons monochrome={false} type={mytype} size={size} />;
+          // Make sure "icon" is a valid ColorSkyconsType value
+          if (mytype === null) {
+            return <p>Invalid value: {myIcon}</p>;
+          } else {
+            if (options.monochrome) {
+              return <ColorSkycons monochrome={options.monochrome} color={options.color} type={mytype} size={size} />;
+            } else {
+              return <ColorSkycons monochrome={options.monochrome} type={mytype} size={size} />;
+            }
+          }
+        }
       })}
     </div>
   );
