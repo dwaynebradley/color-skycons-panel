@@ -42,7 +42,9 @@ export const ColorSkyconsPanel: React.FC<Props> = ({ options, data, width, heigh
           );
         } else {
           // Icon must be uppercase and have '_' instead of '-' to work correctly.
-          const myIcon = icon.toUpperCase().replace('-', '_');
+          const find = '-';
+          const re = new RegExp(find, 'g');
+          const myIcon = icon.toUpperCase().replace(re, '_');
           const mytype: ColorSkyconsType = ColorSkyconsType[myIcon as keyof typeof ColorSkyconsType];
 
           // Make sure "icon" is a valid ColorSkyconsType value

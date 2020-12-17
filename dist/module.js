@@ -1472,7 +1472,9 @@ var ColorSkyconsPanel = function ColorSkyconsPanel(_a) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "Invalid data type: (", _typeof(icon), ")", icon);
     } else {
       // Icon must be uppercase and have '_' instead of '-' to work correctly.
-      var myIcon = icon.toUpperCase().replace('-', '_');
+      var find = '-';
+      var re = new RegExp(find, 'g');
+      var myIcon = icon.toUpperCase().replace(re, '_');
       var mytype = react_color_skycons__WEBPACK_IMPORTED_MODULE_4__["ColorSkyconsType"][myIcon]; // Make sure "icon" is a valid ColorSkyconsType value
 
       if (mytype === null) {
