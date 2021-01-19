@@ -10,8 +10,8 @@ interface Props extends PanelProps<SimpleOptions> {}
 export const ColorSkyconsPanel: React.FC<Props> = ({ options, data, width, height }) => {
   const styles = getStyles();
 
-  const icons = data.series
-    .map(series => series.fields.find(field => field.type === 'number'))
+  const skycons = data.series
+    .map(series => series.fields.find(field => field.name === 'skycon'))
     .map(field => field?.values.get(field.values.length - 1));
 
   var size = 0;
@@ -33,18 +33,18 @@ export const ColorSkyconsPanel: React.FC<Props> = ({ options, data, width, heigh
         `
       )}
     >
-      {icons.map((icon, index) => {
-        if (typeof icon !== 'string') {
+      {skycons.map((skycon, index) => {
+        if (typeof skycon !== 'string') {
           return (
             <p>
-              Invalid data type: ({typeof icon}){icon}
+              Invalid data type: ({typeof skycon}){skycon}
             </p>
           );
         } else {
           // Icon must be uppercase and have '_' instead of '-' to work correctly.
           const find = '-';
           const re = new RegExp(find, 'g');
-          const myIcon = icon.toUpperCase().replace(re, '_');
+          const myIcon = skycon.toUpperCase().replace(re, '_');
           const mytype: ColorSkyconsType = ColorSkyconsType[myIcon as keyof typeof ColorSkyconsType];
 
           // Make sure "icon" is a valid ColorSkyconsType value

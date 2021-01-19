@@ -1450,9 +1450,9 @@ var ColorSkyconsPanel = function ColorSkyconsPanel(_a) {
       width = _a.width,
       height = _a.height;
   var styles = getStyles();
-  var icons = data.series.map(function (series) {
+  var skycons = data.series.map(function (series) {
     return series.fields.find(function (field) {
-      return field.type === 'number';
+      return field.name === 'skycon';
     });
   }).map(function (field) {
     return field === null || field === void 0 ? void 0 : field.values.get(field.values.length - 1);
@@ -1467,14 +1467,14 @@ var ColorSkyconsPanel = function ColorSkyconsPanel(_a) {
 
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: Object(emotion__WEBPACK_IMPORTED_MODULE_2__["cx"])(styles.wrapper, Object(emotion__WEBPACK_IMPORTED_MODULE_2__["css"])(templateObject_1 || (templateObject_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"])(["\n          width: ", "px;\n          height: ", "px;\n          display: flex;\n          justify-content: center;\n        "], ["\n          width: ", "px;\n          height: ", "px;\n          display: flex;\n          justify-content: center;\n        "])), width, height))
-  }, icons.map(function (icon, index) {
-    if (typeof icon !== 'string') {
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "Invalid data type: (", _typeof(icon), ")", icon);
+  }, skycons.map(function (skycon, index) {
+    if (typeof skycon !== 'string') {
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, "Invalid data type: (", _typeof(skycon), ")", skycon);
     } else {
       // Icon must be uppercase and have '_' instead of '-' to work correctly.
       var find = '-';
       var re = new RegExp(find, 'g');
-      var myIcon = icon.toUpperCase().replace(re, '_');
+      var myIcon = skycon.toUpperCase().replace(re, '_');
       var mytype = react_color_skycons__WEBPACK_IMPORTED_MODULE_4__["ColorSkyconsType"][myIcon]; // Make sure "icon" is a valid ColorSkyconsType value
 
       if (mytype === null) {
